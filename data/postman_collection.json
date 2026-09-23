@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "cbccb783-144f-4e80-8926-672ebce47dfc",
+		"name": "PAYLOOP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21165647"
+	},
+	"item": [
+		{
+			"name": "GetCheckDetails",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://touche.prologicfirst.online/ToucheAPI.staging/TOUCHE/GetCheckDetails?requeststring={\"PropertyId\":\"PFS\",\"AppKey\":\"cnkjhftRngh23i4\",\"Timestamp\":\"1419920490604\",\"DeviceId\":\"STAGING\",\"CheckNumber\":\"A0001141\",\"CheckLock\":\"Y\"}",
+					"protocol": "https",
+					"host": [
+						"touche",
+						"prologicfirst",
+						"online"
+					],
+					"path": [
+						"ToucheAPI.staging",
+						"TOUCHE",
+						"GetCheckDetails"
+					],
+					"query": [
+						{
+							"key": "requeststring",
+							"value": "{\"PropertyId\":\"PFS\",\"AppKey\":\"cnkjhftRngh23i4\",\"Timestamp\":\"1419920490604\",\"DeviceId\":\"STAGING\",\"CheckNumber\":\"A0001141\",\"CheckLock\":\"Y\"}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SettleCheck",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://touche.prologicfirst.online/ToucheAPI.staging/TOUCHE/SettleCheck?requeststring={\n\t\"appKey\": \"cnkjhftRngh23i4\",\n\t\"deviceId\": \"STAGING\",\n\t\"propertyId\": \"PFS\",\n\t\"timestamp\": 1419920490602,\n\t\"cardDetails\": {\n\t\t\"cardExpiryDate\": \"1/1/2040\",\n\t\t\"cardNumber\": \"2g/qZAWGBm0=\\n\",\n\t\t\"cardStrip\": null,\n\t\t\"otp\": null\n\t},\n\t\"checkAmount\": 57.75,\n\t\"checkBalance\": 57.75,\n\t\"checkNumber\": \"A0001123\",\n\t\"forexSettleValues\": {\n\t\t\"adjust\": 0,\n\t\t\"fx_amount\": 0,\n\t\t\"fx_code\": \"\",\n\t\t\"return_fx_amount\": 0,\n\t\t\"return_fx_code\": \"\",\n\t\t\"return_local_amount\": 0\n\t},\n\t\"isCompletlySettled\": \"Y\",\n\t\"outletCode\": \"DINE\",\n\t\"receivedAmount\": 57.75,\n\t\"settleGuestDetails\": {\n\t\t\"accountId\": \"\",\n\t\t\"guestName\": null,\n\t\t\"guestProfileCode\": 0,\n\t\t\"membershipId\": null,\n\t\t\"pointsRedeemed\": 0,\n\t\t\"reservationStatus\": null,\n\t\t\"roomNumber\": null\n\t},\n\t\"settlementOptionCode\": \"VISA\",\n\t\"settlementType\": \"CD\",\n\t\"shiftNumber\": 1,\n\t\"transactionId\": \"\",\n\t\"userId\": \"QLUB\"\n}",
+					"protocol": "https",
+					"host": [
+						"touche",
+						"prologicfirst",
+						"online"
+					],
+					"path": [
+						"ToucheAPI.staging",
+						"TOUCHE",
+						"SettleCheck"
+					],
+					"query": [
+						{
+							"key": "requeststring",
+							"value": "{\n\t\"appKey\": \"cnkjhftRngh23i4\",\n\t\"deviceId\": \"STAGING\",\n\t\"propertyId\": \"PFS\",\n\t\"timestamp\": 1419920490602,\n\t\"cardDetails\": {\n\t\t\"cardExpiryDate\": \"1/1/2040\",\n\t\t\"cardNumber\": \"2g/qZAWGBm0=\\n\",\n\t\t\"cardStrip\": null,\n\t\t\"otp\": null\n\t},\n\t\"checkAmount\": 57.75,\n\t\"checkBalance\": 57.75,\n\t\"checkNumber\": \"A0001123\",\n\t\"forexSettleValues\": {\n\t\t\"adjust\": 0,\n\t\t\"fx_amount\": 0,\n\t\t\"fx_code\": \"\",\n\t\t\"return_fx_amount\": 0,\n\t\t\"return_fx_code\": \"\",\n\t\t\"return_local_amount\": 0\n\t},\n\t\"isCompletlySettled\": \"Y\",\n\t\"outletCode\": \"DINE\",\n\t\"receivedAmount\": 57.75,\n\t\"settleGuestDetails\": {\n\t\t\"accountId\": \"\",\n\t\t\"guestName\": null,\n\t\t\"guestProfileCode\": 0,\n\t\t\"membershipId\": null,\n\t\t\"pointsRedeemed\": 0,\n\t\t\"reservationStatus\": null,\n\t\t\"roomNumber\": null\n\t},\n\t\"settlementOptionCode\": \"VISA\",\n\t\"settlementType\": \"CD\",\n\t\"shiftNumber\": 1,\n\t\"transactionId\": \"\",\n\t\"userId\": \"QLUB\"\n}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllOpenChecks",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://touche.prologicfirst.online/ToucheAPI.staging/TOUCHE/getallopenchecks?requeststring={\"PropertyId\":\"PFS\",\"deviceId\":\"STAGING\",\"AppKey\":\"cnkjhftRngh23i4\",\"Timestamp\":\"1419920490603\",\"OutletCode\":\"DINE\"}",
+					"protocol": "https",
+					"host": [
+						"touche",
+						"prologicfirst",
+						"online"
+					],
+					"path": [
+						"ToucheAPI.staging",
+						"TOUCHE",
+						"getallopenchecks"
+					],
+					"query": [
+						{
+							"key": "requeststring",
+							"value": "{\"PropertyId\":\"PFS\",\"deviceId\":\"STAGING\",\"AppKey\":\"cnkjhftRngh23i4\",\"Timestamp\":\"1419920490603\",\"OutletCode\":\"DINE\"}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ReleaseCheckLock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://touche.prologicfirst.online/ToucheAPI.staging/TOUCHE/ReleaseCheckLock?requeststring={\"PropertyId\":\"PFS\",\"AppKey\":\"cnkjhftRngh23i4\",\"Timestamp\":\"1419920490604\",\"DeviceId\":\"STAGING\",\"CheckNumber\":\"A0001119\"}",
+					"protocol": "https",
+					"host": [
+						"touche",
+						"prologicfirst",
+						"online"
+					],
+					"path": [
+						"ToucheAPI.staging",
+						"TOUCHE",
+						"ReleaseCheckLock"
+					],
+					"query": [
+						{
+							"key": "requeststring",
+							"value": "{\"PropertyId\":\"PFS\",\"AppKey\":\"cnkjhftRngh23i4\",\"Timestamp\":\"1419920490604\",\"DeviceId\":\"STAGING\",\"CheckNumber\":\"A0001119\"}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveCheckAmplified",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://touche.prologicfirst.online/ToucheAPI.staging/TOUCHE/SaveCheckAmplified?requeststring={\"appKey\":\"cnkjhftRngh23i4\",\"deviceId\":\"STAGING\",\"propertyId\":\"PFS\",\"timestamp\":1749544167873,\"cardNumber\":null,\"check\":{\"balance\":0.0,\"channel\":\"\",\"checkCloseTime\":null,\"checkNumber\":\"A0001119\",\"checkOpenTime\":null,\"checkType\":\"\",\"clubPackage\":\"\",\"comments\":\"\",\"contactMembership\":\"\",\"coverCharge\":0.0,\"coverChargeExmpetion\":\"N\",\"covers\":0,\"emailCheck\":{\"emailId\":\"\",\"sendEmail\":false},\"ewallet\":{\"ewalletRefId\":\"\",\"ewalletType\":null},\"externalReference\":{\"externalReferenceNumber\":\"\",\"externalReferenceType\":\"\"},\"gstNumber\":null,\"guestProfiles\":null,\"isNonChargeable\":\"N\",\"isResident\":\"\",\"localCheckNumber\":null,\"membershipCard\":\"\",\"membershipPoints\":0,\"orderLineItems\":[],\"otherCharges\":0.0,\"pickUpTime\":\"\",\"printCount\":0,\"splitCheck\":\"\",\"subChannel\":\"\",\"tableNumber\":\"23\",\"taxNumber\":\"\",\"mealPeriod\":\"\",\"roomNo\":\"\"},\"checkCloseTime\":null,\"checkOpenTime\":null,\"deliveryChargeAmount\":0.0,\"discountSlab\":{\"appliesTo\":null,\"askGuestDetails\":\"N\",\"discountCategory\":null,\"discountCategoryDescription\":null,\"discountCode\":\"FIXD\",\"discountDetails\":[{\"discount\":100.0,\"discountIndicator\":\"F\",\"itemAccount\":\"FD\",\"optionCode\":null,\"overCoverCount\":0,\"overCoverDiscount\":0.0,\"realm\":null,\"loaded\":true,\"managed\":false,\"valid\":true}],\"discountHappyHourItems\":\"Y\",\"discountName\":\"Fixed Amount\",\"discountOnTaxes\":\"Y\",\"isAdhoc\":\"F\",\"realm\":null,\"loaded\":true,\"managed\":false,\"valid\":true},\"guestName\":null,\"markupCode\":null,\"outletCode\":\"DINE\",\"shiftNumber\":1,\"taxExemptionCode\":null,\"tipAmount\":0.0,\"userId\":\"AJAI\",\"chainId\":\"\"}",
+					"protocol": "https",
+					"host": [
+						"touche",
+						"prologicfirst",
+						"online"
+					],
+					"path": [
+						"ToucheAPI.staging",
+						"TOUCHE",
+						"SaveCheckAmplified"
+					],
+					"query": [
+						{
+							"key": "requeststring",
+							"value": "{\"appKey\":\"cnkjhftRngh23i4\",\"deviceId\":\"STAGING\",\"propertyId\":\"PFS\",\"timestamp\":1749544167873,\"cardNumber\":null,\"check\":{\"balance\":0.0,\"channel\":\"\",\"checkCloseTime\":null,\"checkNumber\":\"A0001119\",\"checkOpenTime\":null,\"checkType\":\"\",\"clubPackage\":\"\",\"comments\":\"\",\"contactMembership\":\"\",\"coverCharge\":0.0,\"coverChargeExmpetion\":\"N\",\"covers\":0,\"emailCheck\":{\"emailId\":\"\",\"sendEmail\":false},\"ewallet\":{\"ewalletRefId\":\"\",\"ewalletType\":null},\"externalReference\":{\"externalReferenceNumber\":\"\",\"externalReferenceType\":\"\"},\"gstNumber\":null,\"guestProfiles\":null,\"isNonChargeable\":\"N\",\"isResident\":\"\",\"localCheckNumber\":null,\"membershipCard\":\"\",\"membershipPoints\":0,\"orderLineItems\":[],\"otherCharges\":0.0,\"pickUpTime\":\"\",\"printCount\":0,\"splitCheck\":\"\",\"subChannel\":\"\",\"tableNumber\":\"23\",\"taxNumber\":\"\",\"mealPeriod\":\"\",\"roomNo\":\"\"},\"checkCloseTime\":null,\"checkOpenTime\":null,\"deliveryChargeAmount\":0.0,\"discountSlab\":{\"appliesTo\":null,\"askGuestDetails\":\"N\",\"discountCategory\":null,\"discountCategoryDescription\":null,\"discountCode\":\"FIXD\",\"discountDetails\":[{\"discount\":100.0,\"discountIndicator\":\"F\",\"itemAccount\":\"FD\",\"optionCode\":null,\"overCoverCount\":0,\"overCoverDiscount\":0.0,\"realm\":null,\"loaded\":true,\"managed\":false,\"valid\":true}],\"discountHappyHourItems\":\"Y\",\"discountName\":\"Fixed Amount\",\"discountOnTaxes\":\"Y\",\"isAdhoc\":\"F\",\"realm\":null,\"loaded\":true,\"managed\":false,\"valid\":true},\"guestName\":null,\"markupCode\":null,\"outletCode\":\"DINE\",\"shiftNumber\":1,\"taxExemptionCode\":null,\"tipAmount\":0.0,\"userId\":\"AJAI\",\"chainId\":\"\"}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

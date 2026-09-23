@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>POS Terminal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>POS</h1>
+    <form id="outlet-form">
+      <label>Outlet <input id="outlet" value="DINE" required size="8"></label>
+      <button>Load</button>
+    </form>
+    <span id="session-info" class="muted">No table selected</span>
+  </header>
+
+  <main>
+    <section id="tables-pane" aria-labelledby="tables-h">
+      <div class="pane-head">
+        <h2 id="tables-h">Tables</h2>
+        <button id="refresh-tables" class="ghost" title="Refresh">↻</button>
+      </div>
+      <div id="tables" class="tables"></div>
+      <form id="table-form" class="row">
+        <input id="table-no" placeholder="Table #" required size="6">
+        <input id="covers" type="number" min="0" value="1" title="Covers" style="width:4rem">
+        <button>Open</button>
+      </form>
+    </section>
+
+    <section id="menu-pane" aria-labelledby="menu-h">
+      <h2 id="menu-h" class="sr-only">Menu</h2>
+      <nav id="menus" class="tabs"></nav>
+      <nav id="submenus" class="chips"></nav>
+      <input id="search" type="search" placeholder="Search items…">
+      <div id="items" class="items"></div>
+    </section>
+
+    <section id="ticket-pane" aria-labelledby="ticket-h">
+      <h2 id="ticket-h">Ticket <span id="check-no" class="muted"></span></h2>
+
+      <h3>New items</h3>
+      <ul id="cart" class="lines"></ul>
+      <button id="send" class="primary" disabled>Send order</button>
+
+      <h3>On check</h3>
+      <ul id="bill-lines" class="lines"></ul>
+      <dl id="totals" class="totals"></dl>
+
+      <form id="settle-form" class="settle">
+        <select id="settle-option" required></select>
+        <input id="settle-amount" type="number" step="0.01" min="0" placeholder="Amount (full)">
+        <button class="primary">Settle</button>
+      </form>
+    </section>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
