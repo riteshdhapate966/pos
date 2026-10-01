@@ -11,23 +11,24 @@ import time
 import httpx
 from fastapi import HTTPException
 
-# Server from data/config.txt; credentials still the staging ones from data/postman_collection.json.
+# Rufescent live server (data/config.txt). PropertyId is RUF01 with a ZERO - "RUFO1" (letter O) returns
+# "No Menu Available" for every outlet, since Touché doesn't validate auth and just finds no property.
+BASE_URL = os.environ.get("TOUCHE_BASE_URL", "https://pms-api.rufescent.com/ToucheAPI/")
+AUTH = {
+    "PropertyId": os.environ.get("TOUCHE_PROPERTY_ID", "RUF01"),
+    "AppKey": os.environ.get("TOUCHE_APP_KEY", "Touche"),
+    "DeviceId": os.environ.get("TOUCHE_DEVICE_ID", "RUFSERVER_Administrator"),
+}
+USER_ID = os.environ.get("TOUCHE_USER_ID", "888")
+
+# Staging (data/postman_collection.json):
 # BASE_URL = os.environ.get("TOUCHE_BASE_URL", "https://touche.prologicfirst.online/ToucheAPI.staging/")
 # AUTH = {
-#     "PropertyId": os.environ.get("TOUCHE_PROPERTY_ID", "RUFO1"),
-#     "AppKey": os.environ.get("TOUCHE_APP_KEY", "Touche"),
-#     "DeviceId": os.environ.get("TOUCHE_DEVICE_ID", "RUFSERVER_Administrator"),
+#     "PropertyId": os.environ.get("TOUCHE_PROPERTY_ID", "PFS"),
+#     "AppKey": os.environ.get("TOUCHE_APP_KEY", "cnkjhftRngh23i4"),
+#     "DeviceId": os.environ.get("TOUCHE_DEVICE_ID", "STAGING"),
 # }
-# USER_ID = os.environ.get("TOUCHE_USER_ID", "888")
-
-# Server from data/config.txt; credentials still the staging ones from data/postman_collection.json.
-BASE_URL = os.environ.get("TOUCHE_BASE_URL", "https://touche.prologicfirst.online/ToucheAPI.staging/")
-AUTH = {
-    "PropertyId": os.environ.get("TOUCHE_PROPERTY_ID", "PFS"),
-    "AppKey": os.environ.get("TOUCHE_APP_KEY", "cnkjhftRngh23i4"),
-    "DeviceId": os.environ.get("TOUCHE_DEVICE_ID", "STAGING"),
-}
-USER_ID = os.environ.get("TOUCHE_USER_ID", "QLUB")
+# USER_ID = os.environ.get("TOUCHE_USER_ID", "QLUB")
 
 
 TIMEOUT = float(os.environ.get("TOUCHE_TIMEOUT", "30"))

@@ -213,11 +213,19 @@ async function settle(e) {
 
 // ---------- wiring ----------
 
-$("outlet-form").onsubmit = (e) => { e.preventDefault(); loadOutlet(); };
+$("outlet").onchange = loadOutlet;
 $("refresh-tables").onclick = loadTables;
 $("table-form").onsubmit = (e) => { e.preventDefault(); openTable($("table-no").value.trim(), $("covers").value, null); };
 $("search").oninput = renderMenu;
 $("send").onclick = (e) => sendOrder(e.currentTarget);
 $("settle-form").onsubmit = settle;
 
-loadOutlet();
+async function init() {
+  try {
+    const outlets = await api("/outlets");
+    $("outlet").replaceChildren(...outlets.map((o) => el("option", { value: o.code, textContent: `${o.name} (${o.code})` })));
+    $("outlet").value = outlets.some((o) => o.code === "PLB") ? "PLB" : outlets[0]?.code ?? "";
+  } catch (e) { toast(e.message, true); }
+  loadOutlet();
+}
+init();

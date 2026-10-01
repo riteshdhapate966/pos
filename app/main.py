@@ -10,6 +10,14 @@ from app import touche
 
 app = FastAPI(title="POS")
 
+
+@app.middleware("http")
+async def no_stale_ui(request, call_next):
+    # Without this the browser heuristically caches app.js, so a new index.html can run an old app.js and crash.
+    response = await call_next(request)
+    response.headers.setdefault("Cache-Control", "no-cache")
+    return response
+
 # ponytail: in-memory state, lost on restart; move to a DB when running >1 worker or sessions must survive restarts
 sessions: dict[str, dict] = {}
 menu_index: dict[str, dict[tuple[str, str], dict]] = {}  # outlet -> (subMenuCode, itemCode) -> raw Touché item
@@ -48,6 +56,12 @@ def health():
 
 
 # ---------- outlet ----------
+
+@app.get("/api/v1/outlets")
+async def get_outlets():
+    data = await touche.call("TOUCHE/GetAllOutlets", {})
+    return [{"code": o["OutletCode"], "name": o["OutletName"]} for o in data.get("Outlets") or []]
+
 
 async def load_menu(outlet: str) -> list[dict]:
     data = await touche.call("ToucheLite/GetOutletDetails", {"OutletCode": outlet, "UserId": touche.USER_ID})
